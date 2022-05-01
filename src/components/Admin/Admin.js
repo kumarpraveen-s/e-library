@@ -8,14 +8,13 @@ import {
   TableRow,
 } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Context from "../Contextapi/contextapi";
 import classes from "./Admin.module.css";
 
 const Admin = ({ isAdmin }) => {
   const [, state, dispatch] = useContext(Context);
   const [books, setBooks] = useState(state.filter((item) => item.requested));
-  const navigate = useNavigate();
+
   useEffect(() => {
     setBooks(state.filter((item) => item.requested));
   }, [state]);

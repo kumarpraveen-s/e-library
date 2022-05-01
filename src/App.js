@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Admin from "./components/Admin/Admin";
 import Header from "./components/Header/Header";
 import Student from "./components/Students/Student";

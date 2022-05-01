@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./Header.module.css";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";

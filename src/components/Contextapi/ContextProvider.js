@@ -109,6 +109,8 @@ const reducer = (state, action) => {
       state[index] = updateIndex_Accept;
       console.log(state);
       return state;
+    default:
+      return state;
   }
 };
 
