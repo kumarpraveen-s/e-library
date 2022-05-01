@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import Admin from "./components/Admin/Admin";
+import Header from "./components/Header/Header";
+import Student from "./components/Students/Student";
 
-function App() {
+const App = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isStudent, setIsStudent] = useState(false);
+
+  const adminHandler = () => {
+    setIsAdmin((prevState) => (prevState ? false : true));
+  };
+
+  const studentHandler = () => {
+    setIsStudent((prevState) => (prevState ? false : true));
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header
+        isAdmin={isAdmin}
+        isStudent={isStudent}
+        adminHandler={adminHandler}
+        studentHandler={studentHandler}
+      />
+      <Routes>
+        <Route path="/" element={<Student />} />
+        <Route path="student" element={<Student isStudent={isStudent} />} />
+        <Route path="admin" element={<Admin isAdmin={isAdmin} />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
