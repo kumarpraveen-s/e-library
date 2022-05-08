@@ -5,12 +5,10 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const Header = ({ isAdmin, isStudent, adminHandler, studentHandler }) => {
   const navigate = useNavigate();
   const AdminHandler = () => {
-    adminHandler();
-    navigate(isAdmin ? "/" : "admin");
+    navigate(isAdmin ? "admin" : "login-admin");
   };
   const StudentHandler = () => {
-    studentHandler();
-    navigate("student");
+    navigate(isStudent ? "student" : "login-student");
   };
   return (
     <div className={classes.header}>
@@ -27,7 +25,14 @@ const Header = ({ isAdmin, isStudent, adminHandler, studentHandler }) => {
             <AccountCircleIcon />
             Admin
           </span>
-          <button onClick={AdminHandler}>Logout</button>
+          <button
+            onClick={() => {
+              adminHandler();
+              navigate("/");
+            }}
+          >
+            Logout
+          </button>
         </div>
       )}
       {isStudent && (
@@ -36,7 +41,7 @@ const Header = ({ isAdmin, isStudent, adminHandler, studentHandler }) => {
             <AccountCircleIcon />
             Siva
           </span>
-          <button onClick={StudentHandler}>Logout</button>
+          <button onClick={() => studentHandler()}>Logout</button>
         </div>
       )}
     </div>
