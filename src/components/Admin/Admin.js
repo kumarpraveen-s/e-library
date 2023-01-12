@@ -16,8 +16,8 @@ const Admin = ({ isAdmin }) => {
   const [books, setBooks] = useState(state.filter((item) => item.requested));
 
   useEffect(() => {
-    setBooks(state.filter((item) => item.requested));
-  }, [state]);
+    setBooks(books.filter((item) => item.requested));
+  }, [books]);
   const RegId = "123456";
   const name = "Siva";
 
